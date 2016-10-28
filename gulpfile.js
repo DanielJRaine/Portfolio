@@ -32,10 +32,51 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist/js'));
 });
 
+var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
+
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: './'
+    },
+  })
+})
+
+var webserver = require('gulp-webserver');
+gulp.task('webserver', function() {
+  gulp.src('app')
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: true,
+      open: true,
+      fallback: './src/app/index.html'
+    }));
+});
+
+gulp.task('sass', function() {
+  return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
+    .pipe(sass())
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('js/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
+});
+
+// Make sure change in code is reflected in browser
+var connect = require('gulp-connect');
+
+gulp.task('connect', function() {
+  connect.server({
+    root: '.',
+    livereload: true
+  })
 });
 
 // Default Task

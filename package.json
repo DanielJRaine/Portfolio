@@ -2,15 +2,20 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "daniel j ley's portfolio",
-  "main": "html/home.html",
-  "dependencies": {},
+  "main": "index.html",
+  "dependencies": {
+    "jshint": "^2.9.4"
+  },
   "devDependencies": {
+    "browser-sync": "^2.17.5",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-jshint": "",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "gulp-webserver": "^0.9.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
