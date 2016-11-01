@@ -7,6 +7,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var connect = require('gulp-connect');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -70,13 +71,12 @@ gulp.task('watch', function() {
 });
 
 // Make sure change in code is reflected in browser
-var connect = require('gulp-connect');
 
 gulp.task('connect', function() {
   connect.server({
     root: '.',
     livereload: true
-  })
+  });
 });
 
 // Default Task
