@@ -373,7 +373,9 @@ h4 a, h5 a, h6 a {
 
 /* Paragraphs */
 .small {
-  font-size: 12px; }
+  font-size: 15px; 
+  line-height: 1.6em;
+  }
 
 .extrasmall {
   font-size: 10px; }
